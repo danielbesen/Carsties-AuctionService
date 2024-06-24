@@ -21,7 +21,19 @@ namespace SearchService.Consumers
 
             var itemUpdated = _mapper.Map<Item>(context.Message);
 
-            await itemUpdated.SaveAsync();
+            var result = await DB.Update<Item>()
+                .Match(x => x.ID == context.Message.Id)
+                .ModifyOnly(x => new
+                {
+                    x.Color,
+                    x.Make,
+                    x.Model,
+                    x.Year,
+                    x.Mileage
+                }, itemUpdated).ExecuteAsync();
+
+            if (!result.IsAcknowledged)
+                throw new MessageException(typeof(AuctionUpdated), "Problem updating mongodb");
             
         }
     }
