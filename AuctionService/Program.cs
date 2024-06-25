@@ -1,3 +1,4 @@
+using AuctionService.Consumers;
 using AuctionService.Data;
 using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -23,6 +24,10 @@ builder.Services.AddMassTransit(x =>
         opt.UsePostgres();
         opt.UseBusOutbox();
     });
+
+    x.AddConsumersFromNamespaceContaining<AuctionFinishedConsumer>();
+
+    x.SetEndpointNameFormatter(new KebabCaseEndpointNameFormatter("auction", false));
 
     x.UsingRabbitMq((context, cfg) =>
     {
