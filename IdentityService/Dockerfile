@@ -15,13 +15,12 @@ COPY IdentityService/IdentityService.csproj IdentityService/IdentityService.cspr
 RUN dotnet restore
 
 # Copy the app folders over
-COPY AuctionService AuctionService
-COPY Contracts Contracts
-WORKDIR /app/AuctionService
+COPY IdentityService IdentityService
+WORKDIR /app/IdentityService
 RUN dotnet publish -c Release -o /app/out
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /app/out .
-ENTRYPOINT ["dotnet", "AuctionService.dll"]
+ENTRYPOINT ["dotnet", "IdentityService.dll"]
