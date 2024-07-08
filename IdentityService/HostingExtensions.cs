@@ -31,7 +31,7 @@ namespace IdentityService
 
                     if (builder.Environment.IsEnvironment("Docker"))
                     {
-                        options.IssuerUri = "identity-svc";
+                        options.IssuerUri = "http://identity-svc";
                     }
 
                     // see https://docs.duendesoftware.com/identityserver/v6/fundamentals/resources/
