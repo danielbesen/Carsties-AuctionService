@@ -7,7 +7,7 @@ services:
             -  5432:5432
         volumes:
             - pgdata:/var/lib/postgresql/data
-    mongo:
+    mongodb:
         image: mongo
         environment:
             - MONGO_INITDB_ROOT_USERNAME=root
@@ -46,12 +46,12 @@ services:
             - ASPNETCORE_ENVIRONMENT=Development
             - ASPNETCORE_URL=http://+:8080
             - RabbitMq__Host=rabbitmq
-            - ConnectionStrings__MongoDbConnection=mongodb://root:admin@mongo
-            - AuctionServiceUrl=http://auction-svc
+            - ConnectionStrings__MongoDbConnection=mongodb://root:admin@mongodb
+            - AuctionServiceUrl=http://auction-svc:8080
         ports:
             - 7002:8080
         depends_on:
-            - mongo
+            - mongodb
             - rabbitmq 
     identity-svc:
         image: nielbesen/identity-svc:latest
