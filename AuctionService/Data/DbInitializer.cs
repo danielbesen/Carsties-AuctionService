@@ -29,7 +29,7 @@ namespace AuctionService.Data
                 Status = Status.Live,
                 ReservePrice = 20000,
                 Seller = "bob",
-                AuctionEnd = DateTime.UtcNow.AddDays(10),
+                AuctionEnd = DateTime.UtcNow.AddDays(60),
                 Item = new Item
                 {
                     Make = "Ford",
@@ -64,7 +64,7 @@ namespace AuctionService.Data
                 Id = Guid.Parse("bbab4d5a-8565-48b1-9450-5ac2a5c4a654"),
                 Status = Status.Live,
                 Seller = "bob",
-                AuctionEnd = DateTime.UtcNow.AddDays(4),
+                AuctionEnd = DateTime.UtcNow.AddDays(60),
                 Item = new Item
                 {
                     Make = "Ford",
@@ -100,7 +100,7 @@ namespace AuctionService.Data
                 Status = Status.Live,
                 ReservePrice = 20000,
                 Seller = "alice",
-                AuctionEnd = DateTime.UtcNow.AddDays(30),
+                AuctionEnd = DateTime.UtcNow.AddDays(60),
                 Item = new Item
                 {
                     Make = "BMW",
@@ -118,7 +118,7 @@ namespace AuctionService.Data
                 Status = Status.Live,
                 ReservePrice = 20000,
                 Seller = "bob",
-                AuctionEnd = DateTime.UtcNow.AddDays(45),
+                AuctionEnd = DateTime.UtcNow.AddDays(60),
                 Item = new Item
                 {
                     Make = "Ferrari",
@@ -136,7 +136,7 @@ namespace AuctionService.Data
                 Status = Status.Live,
                 ReservePrice = 150000,
                 Seller = "alice",
-                AuctionEnd = DateTime.UtcNow.AddDays(13),
+                AuctionEnd = DateTime.UtcNow.AddDays(60),
                 Item = new Item
                 {
                     Make = "Ferrari",
@@ -153,7 +153,7 @@ namespace AuctionService.Data
                 Id = Guid.Parse("6a5011a1-fe1f-47df-9a32-b5346b289391"),
                 Status = Status.Live,
                 Seller = "bob",
-                AuctionEnd = DateTime.UtcNow.AddDays(19),
+                AuctionEnd = DateTime.UtcNow.AddDays(69),
                 Item = new Item
                 {
                     Make = "Audi",
@@ -171,7 +171,7 @@ namespace AuctionService.Data
                 Status = Status.Live,
                 ReservePrice = 20000,
                 Seller = "tom",
-                AuctionEnd = DateTime.UtcNow.AddDays(20),
+                AuctionEnd = DateTime.UtcNow.AddDays(60),
                 Item = new Item
                 {
                     Make = "Audi",
@@ -189,7 +189,7 @@ namespace AuctionService.Data
                 Status = Status.Live,
                 ReservePrice = 20000,
                 Seller = "bob",
-                AuctionEnd = DateTime.UtcNow.AddDays(48),
+                AuctionEnd = DateTime.UtcNow.AddDays(68),
                 Item = new Item
                 {
                     Make = "Ford",
