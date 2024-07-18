@@ -26,21 +26,12 @@ namespace SearchService.Controllers
                 _ => query.Sort(q => q.Ascending(a => a.AuctionEnd))
             };
 
-            //wrong version but it will do it for now
             query = searchParams.FilterBy switch
             {
                 "finished" => query.Match(q => q.AuctionEnd < DateTime.UtcNow),
                 "endingSoon" => query.Match(q => q.AuctionEnd < DateTime.UtcNow.AddHours(6) && q.AuctionEnd > DateTime.UtcNow),
-                _ => query.Match(q => q.AuctionEnd > DateTime.UtcNow.AddMonths(-2))
+                _ => query.Match(q => q.AuctionEnd > DateTime.UtcNow)
             };
-
-            // Correct version when the data in the database is correct.
-            // query = searchParams.FilterBy switch
-            // {
-            //     "finished" => query.Match(q => q.AuctionEnd < DateTime.UtcNow),
-            //     "endingSoon" => query.Match(q => q.AuctionEnd < DateTime.UtcNow.AddHours(6) && q.AuctionEnd > DateTime.UtcNow),
-            //     _ => query.Match(q => q.AuctionEnd > DateTime.UtcNow.AddMonths(-2))
-            // };
 
             if (!string.IsNullOrEmpty(searchParams.Seller))
             {

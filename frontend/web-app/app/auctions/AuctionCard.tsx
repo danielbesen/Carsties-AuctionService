@@ -1,4 +1,5 @@
 import Image from "next/image"
+import CountdownTimer from "./CountdownTimer"
 
 type Props = {
     auction: any
@@ -18,6 +19,7 @@ export default function AuctionCard({auction}: Props) {
                 <h3 className="text-gray-700">{auction.make} {auction.model}</h3>
                 <p className="font-semibold text-sm">{auction.year}</p>
             </div>
+            <CountdownTimer auctionEnd={auction.auctionEnd}></CountdownTimer>
         </a>
     )
 }
